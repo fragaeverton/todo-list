@@ -9,19 +9,19 @@ exports.create = (req, res) =>{
         // check to see if the description field exists in the form
         // if description doesn't exist, send error
         if (!fields.description) {
-        return res.status(400).json({
-            error: 'Description is required',
-        });
+            return res.status(400).json({
+                error: 'Description is required',
+            });
         }
         // if description exists, add to database using create() function
         try {
-        const newTask = await create(description);
-        return res.status(201).send({ data: newTask.rows[0] });
+            const newTask = await create(description);
+            return res.status(201).send({ data: newTask.rows[0] });
         } catch (error) {
-        // if description cannot be added to database, send error
-        return res.status(400).json({
-            error,
-        });
+            // if description cannot be added to database, send error
+            return res.status(400).json({
+                error,
+            });
         }
     });
 }

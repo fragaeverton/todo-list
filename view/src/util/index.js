@@ -12,7 +12,7 @@ export const createTodo = async (todo) => {
 
 export const getTodos = async () => {
   try {
-    const res = await fetch('api/todo');
+    const res = await fetch('api/todos');
     return await res.json();
   } catch (error) {
     return { error };
